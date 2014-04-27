@@ -1,8 +1,8 @@
 {
-    "name": "brackets-sloppy-paste",
-    "title": "Sloppy Paste",
+    "name": "brackets-paste-and-indent",
+    "title": "Paste and Indent",
     "description": "Pasted code will automatically be at the correct indentation level",
-    "homepage": "https://github.com/ahuth/brackets-sloppy-paste",
+    "homepage": "https://github.com/ahuth/brackets-paste-and-indent",
     "version": "0.1.0",
     "author": "Andrew Huth (https://github.com/ahuth)",
     "license": "Unlicense",
