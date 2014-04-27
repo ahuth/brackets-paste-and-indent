@@ -1,4 +1,4 @@
-/*jslint vars: true, plusplus: true, nomen: true */
+/*jslint vars: true, nomen: true */
 /*global define, $, brackets */
 
 // When code is pasted in the editor, re-indent the changed lines.
