@@ -18,8 +18,7 @@ define(function (require, exports, module) {
     }
 
     // Once the app is ready, listen for changes to the editor. If we get a
-    // 'paste' change, re-indent the pasted lines. Finally, remove the re-indent
-    // from the undo history.
+    // 'paste' change, re-indent the pasted lines.
     AppInit.appReady(function () {
         var editor = EditorManager.getFocusedEditor();
         if (!editor) {
