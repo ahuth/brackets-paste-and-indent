@@ -10,6 +10,7 @@ define(function (require, exports, module) {
 
     // Tell CodeMirror to re-indent the document between two lines.
     function reindentLines(codeMirror, lineFrom, lineTo) {
+        // Everything within the `operation` method get batched into 1 update.
         codeMirror.operation(function () {
             codeMirror.eachLine(lineFrom, lineTo, function (lineHandle) {
                 codeMirror.indentLine(lineHandle.lineNo(), "smart");
@@ -17,8 +18,7 @@ define(function (require, exports, module) {
         });
     }
 
-    // Once the app is ready, listen for changes to the editor. If we get a
-    // 'paste' change, re-indent the pasted lines.
+    // Once the app is ready, listen for 'paste' changes in the editor.
     AppInit.appReady(function () {
         var editor = EditorManager.getFocusedEditor();
         if (!editor) {
