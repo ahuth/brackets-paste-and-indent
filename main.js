@@ -1,4 +1,4 @@
-/*jslint vars: true, plusplus: true, nomen: true */
+/*jslint vars: true, nomen: true */
 /*global define, $, brackets */
 
 // When code is pasted in the editor, re-indent the changed lines.
@@ -20,12 +20,8 @@ define(function (require, exports, module) {
 
     // Once the app is ready, listen for 'paste' changes in the editor.
     AppInit.appReady(function () {
-        var editor = EditorManager.getFocusedEditor();
-        if (!editor) {
-            return;
-        }
-
-        var codeMirror = editor._codeMirror;
+        var editor = EditorManager.getFocusedEditor(),
+            codeMirror = editor._codeMirror;
 
         codeMirror.on("change", function (codeMirror, change) {
             if (change.origin !== "paste") {
