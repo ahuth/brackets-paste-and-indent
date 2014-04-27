@@ -1,11 +1,11 @@
-Sloppy Paste
+Paste and Indent
 ==========
 
 **Extension for Adobe Brackets**
 
 ##Install
 
-From the extension manager, search for 'sloppy paste' and press 'Install'.
+From the extension manager, search for 'paste and indent' and press 'Install'.
 
 ##License
 
