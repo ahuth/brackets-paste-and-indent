@@ -3,9 +3,13 @@ Paste and Indent
 
 **Extension for Adobe Brackets**
 
+Automatically apply the correct indentation to pasted text.
+
 ##Install
 
-From the extension manager, search for 'paste and indent' and press 'Install'.
+1. Open the Extension Manager
+2. Search for "paste and indent"
+3. Click install
 
 ##License
 
