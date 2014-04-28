@@ -20,10 +20,12 @@ define(function (require, exports, module) {
     }
 
     // Once the app is ready, listen for 'paste' changes in the editor.
-    AppInit.appReady(function () {
-        var editor = EditorManager.getFocusedEditor(),
-            codeMirror = editor._codeMirror;
-
+    $(DocumentManger).on("currentDocumentChange", function () {
+        var editor = EditorManager.getCurrentFullEditor();
+        if (!editor) {
+            return;
+        }
+        var codeMirror = editor._codeMirror;
         codeMirror.on("change", function (codeMirror, change) {
             if (change.origin !== "paste") {
                 return;
