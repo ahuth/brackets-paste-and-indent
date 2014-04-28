@@ -30,7 +30,7 @@ if (Brackets === Awesome) {
 
 1. Open the Extension Manager
 2. Search for "paste and indent"
-3. Click install
+3. Click "install"
 
 ##License
 
