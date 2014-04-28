@@ -5,8 +5,7 @@
 define(function (require, exports, module) {
     "use strict";
 
-    var AppInit = brackets.getModule("utils/AppInit"),
-        DocumentManger = brackets.getModule("document/DocumentManager"),
+    var DocumentManger = brackets.getModule("document/DocumentManager"),
         EditorManager = brackets.getModule("editor/EditorManager");
 
     // Re-indent the editor in between specific lines. These are batched into
