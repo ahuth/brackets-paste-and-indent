@@ -1,15 +1,36 @@
 Paste and Indent
 ==========
 
-**Extension for Adobe Brackets**
+**Extension for [Adobe Brackets](http://brackets.io)**
 
 Automatically apply the correct indentation to pasted text.
+
+When copying and pasting code, its indentation often ends up being wrong for
+where it was pasted. The resulting code ends up looking weird:
+
+```javascript
+if (Brackets === Awesome) {
+    if (Life === Good) {
+    return true;
+}
+}
+```
+
+This extension re-indents pasted code to be at the correct indentation level:
+
+```javascript
+if (Brackets === Awesome) {
+    if (Life === Good) {
+        return true;
+    }
+}
+```
 
 ##Install
 
 1. Open the Extension Manager
 2. Search for "paste and indent"
-3. Click install
+3. Click "install"
 
 ##License
 

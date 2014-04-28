@@ -18,8 +18,8 @@ define(function (require, exports, module) {
         });
     }
 
-    // Get a reference to the current editor and attach a listener for paste
-    // events.
+    // When the Brackets document changes, attach an event listener for paste
+    // events on its internal codeMirror object.
     $(DocumentManger).on("currentDocumentChange", function () {
         var editor = EditorManager.getCurrentFullEditor();
         if (!editor) {
