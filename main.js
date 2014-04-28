@@ -19,7 +19,7 @@ define(function (require, exports, module) {
         });
     }
 
-    // Once the app is ready, listen for 'paste' changes in the editor.
+    // When the document changes, listen for 'paste' changes in the editor.
     $(DocumentManger).on("currentDocumentChange", function () {
         var editor = EditorManager.getCurrentFullEditor();
         if (!editor) {
