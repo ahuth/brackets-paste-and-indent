@@ -1,7 +1,7 @@
 Paste and Indent
 ==========
 
-**Extension for Adobe Brackets**
+**Extension for [Adobe Brackets](http://brackets.io)**
 
 Automatically apply the correct indentation to pasted text.
 
