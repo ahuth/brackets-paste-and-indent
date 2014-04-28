@@ -6,12 +6,12 @@ define(function (require, exports, module) {
     "use strict";
 
     var AppInit = brackets.getModule("utils/AppInit"),
-        EditorManager = brackets.getModule("editor/EditorManager"),
-        DocumentManger = brackets.getModule("document/DocumentManager");
+        DocumentManger = brackets.getModule("document/DocumentManager"),
+        EditorManager = brackets.getModule("editor/EditorManager");
 
-    // Tell CodeMirror to re-indent the document between two lines.
+    // Re-indent the editor in between specific lines. These are batched into
+    // one update.
     function reindentLines(codeMirror, lineFrom, lineTo) {
-        // Everything within the `operation` method get batched into 1 update.
         codeMirror.operation(function () {
             codeMirror.eachLine(lineFrom, lineTo, function (lineHandle) {
                 codeMirror.indentLine(lineHandle.lineNo(), "smart");
@@ -19,7 +19,8 @@ define(function (require, exports, module) {
         });
     }
 
-    // When the document changes, listen for 'paste' changes in the editor.
+    // Get a reference to the current editor and attach a listener for paste
+    // events.
     $(DocumentManger).on("currentDocumentChange", function () {
         var editor = EditorManager.getCurrentFullEditor();
         if (!editor) {
