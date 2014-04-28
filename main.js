@@ -6,7 +6,8 @@ define(function (require, exports, module) {
     "use strict";
 
     var AppInit = brackets.getModule("utils/AppInit"),
-        EditorManager = brackets.getModule("editor/EditorManager");
+        EditorManager = brackets.getModule("editor/EditorManager"),
+        DocumentManger = brackets.getModule("document/DocumentManager");
 
     // Tell CodeMirror to re-indent the document between two lines.
     function reindentLines(codeMirror, lineFrom, lineTo) {
@@ -18,11 +19,13 @@ define(function (require, exports, module) {
         });
     }
 
-    // Once the app is ready, listen for 'paste' changes in the editor.
-    AppInit.appReady(function () {
-        var editor = EditorManager.getFocusedEditor(),
-            codeMirror = editor._codeMirror;
-
+    // When the document changes, listen for 'paste' changes in the editor.
+    $(DocumentManger).on("currentDocumentChange", function () {
+        var editor = EditorManager.getCurrentFullEditor();
+        if (!editor) {
+            return;
+        }
+        var codeMirror = editor._codeMirror;
         codeMirror.on("change", function (codeMirror, change) {
             if (change.origin !== "paste") {
                 return;
