@@ -5,6 +5,27 @@ Paste and Indent
 
 Automatically apply the correct indentation to pasted text.
 
+When copying and pasting code, its indentation often ends up being wrong for
+where it was pasted. The resulting code ends up looking weird:
+
+```javascript
+if (Brackets === Awesome) {
+    if (Life === Good) {
+    return true;
+}
+}
+```
+
+This extension re-indents pasted code to be at the correct indentation level:
+
+```javascript
+if (Brackets === Awesome) {
+    if (Life === Good) {
+        return true;
+    }
+}
+```
+
 ##Install
 
 1. Open the Extension Manager
