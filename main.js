@@ -6,7 +6,8 @@ define(function (require, exports, module) {
     "use strict";
 
     var AppInit = brackets.getModule("utils/AppInit"),
-        EditorManager = brackets.getModule("editor/EditorManager");
+        EditorManager = brackets.getModule("editor/EditorManager"),
+        DocumentManger = brackets.getModule("document/DocumentManager");
 
     // Tell CodeMirror to re-indent the document between two lines.
     function reindentLines(codeMirror, lineFrom, lineTo) {
