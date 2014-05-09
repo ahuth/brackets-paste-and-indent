@@ -10,7 +10,7 @@ define(function (require, exports, module) {
         PreferencesManager = brackets.getModule("preferences/PreferencesManager"),
         prefs = PreferencesManager.getExtensionPrefs("brackets-paste-and-indent");
 
-    // Define the `enabled` preference, default is `true`
+    // Define the `enabled` preference, default is `true`.
     prefs.definePreference("enabled", "boolean", "true");
 
     // Re-indent the editor in between specific lines. These are batched into
