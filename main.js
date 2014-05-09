@@ -12,7 +12,7 @@ define(function (require, exports, module) {
 
     // Define the `enabled` preference, default is `true`
     prefs.definePreference("enabled", "boolean", "true");
-    
+
     // Re-indent the editor in between specific lines. These are batched into
     // one update.
     function reindentLines(codeMirror, lineFrom, lineTo) {
