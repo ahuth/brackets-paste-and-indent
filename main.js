@@ -32,9 +32,7 @@ define(function (require, exports, module) {
         }
         var codeMirror = editor._codeMirror;
         codeMirror.on("change", function (codeMirror, change) {
-            var enabled = prefs.get('enabled');
-
-            if (change.origin !== "paste" || !enabled) {
+            if (!prefs.get("enabled") || change.origin !== "paste") {
                 return;
             }
 
