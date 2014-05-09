@@ -26,6 +26,12 @@ if (Brackets === Awesome) {
 }
 ```
 
+##Disabling
+
+Disable the extension for a specific project by adding the `"brackets-paste-and-indent.enabled": false`
+key/value to a `.brackets.json` JSON file at the root of your project. Changing this may require
+you to restart Brackets.
+
 ##Install
 
 1. Open the Extension Manager

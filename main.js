@@ -9,12 +9,10 @@ define(function (require, exports, module) {
         EditorManager = brackets.getModule("editor/EditorManager"),
         PreferencesManager = brackets.getModule("preferences/PreferencesManager"),
         prefs = PreferencesManager.getExtensionPrefs("brackets-paste-and-indent");
-    
-    //prefix `brackets-paste-and-indent` is defined above
-    
-    //define the `enabled` preference, default is `true`
+
+    // Define the `enabled` preference, default is `true`.
     prefs.definePreference("enabled", "boolean", "true");
-    
+
     // Re-indent the editor in between specific lines. These are batched into
     // one update.
     function reindentLines(codeMirror, lineFrom, lineTo) {
@@ -34,10 +32,7 @@ define(function (require, exports, module) {
         }
         var codeMirror = editor._codeMirror;
         codeMirror.on("change", function (codeMirror, change) {
-            var enabled = prefs.get('enabled');
-            
-            //check it whether enabled
-            if (change.origin !== "paste" || !enabled) {
+            if (!prefs.get("enabled") || change.origin !== "paste") {
                 return;
             }
 
