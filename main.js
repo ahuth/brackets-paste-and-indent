@@ -27,10 +27,13 @@ define(function (require, exports, module) {
     // events on its internal codeMirror object.
     $(DocumentManger).on("currentDocumentChange", function () {
         var editor = EditorManager.getCurrentFullEditor();
+
         if (!editor) {
             return;
         }
+
         var codeMirror = editor._codeMirror;
+
         codeMirror.on("change", function (codeMirror, change) {
             if (!prefs.get("enabled") || change.origin !== "paste") {
                 return;
