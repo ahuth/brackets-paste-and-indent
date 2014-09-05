@@ -23,6 +23,7 @@ define(function (require, exports, module) {
     }
     
     CommandManager.register("Paste and indent enabled", "pasteIndentEnabled", toggle_enabled);
+    CommandManager.get("pasteIndentEnabled").setChecked(enabled);
     var menu = Menus.getMenu(Menus.AppMenuBar.EDIT_MENU);
     menu.addMenuDivider();
     menu.addMenuItem("pasteIndentEnabled");
