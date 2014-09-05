@@ -8,19 +8,36 @@ define(function (require, exports, module) {
     var DocumentManger = brackets.getModule("document/DocumentManager"),
         EditorManager = brackets.getModule("editor/EditorManager"),
         PreferencesManager = brackets.getModule("preferences/PreferencesManager"),
+        CommandManager = brackets.getModule("command/CommandManager"),
+        Menus = brackets.getModule("command/Menus"),
         prefs = PreferencesManager.getExtensionPrefs("brackets-paste-and-indent");
 
     // Define the `enabled` preference, default is `true`.
     prefs.definePreference("enabled", "boolean", "true");
+    var enabled = true;
+    
+    // Add a menu item that lets you disable/enable paste and indent
+    function toggle_enabled() {
+        enabled = !enabled;
+        CommandManager.get("pasteIndentEnabled").setChecked(enabled);
+    }
+    
+    CommandManager.register("Paste and indent enabled", "pasteIndentEnabled", toggle_enabled);
+    var menu = Menus.getMenu(Menus.AppMenuBar.EDIT_MENU);
+    menu.addMenuDivider();
+    menu.addMenuItem("pasteIndentEnabled");
 
     // Re-indent the editor in between specific lines. These are batched into
     // one update.
     function reindentLines(codeMirror, lineFrom, lineTo) {
-        codeMirror.operation(function () {
-            codeMirror.eachLine(lineFrom, lineTo, function (lineHandle) {
-                codeMirror.indentLine(lineHandle.lineNo(), "smart");
+        // check if indent is enabled
+        if (enabled) {
+            codeMirror.operation(function () {
+                codeMirror.eachLine(lineFrom, lineTo, function (lineHandle) {
+                    codeMirror.indentLine(lineHandle.lineNo(), "smart");
+                });
             });
-        });
+        }
     }
 
     // When the Brackets document changes, attach an event listener for paste
