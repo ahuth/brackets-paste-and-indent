@@ -4,7 +4,7 @@
     "description": "Automatically apply the correct indentation to pasted text",
     "homepage": "https://github.com/ahuth/brackets-paste-and-indent",
     "version": "0.2.0",
-    "author": "Andrew Huth (https://github.com/ahuth)",
+    "author": "Cody Moniz (https://github.com/unyo)",
     "license": "Unlicense",
     "categories": "formatting",
     "keywords": [
