@@ -1,13 +1,13 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
-/*global define, $, brackets */
+/*global define, brackets */
 
 // When code is pasted in the editor, re-indent the changed lines.
 define(function (require, exports, module) {
     "use strict";
 
-    var DocumentManger = brackets.getModule("document/DocumentManager"),
-        EditorManager = brackets.getModule("editor/EditorManager"),
+    var EditorManager = brackets.getModule("editor/EditorManager"),
         PreferencesManager = brackets.getModule("preferences/PreferencesManager"),
+        MainViewManager     = brackets.getModule("view/MainViewManager"),
         prefs = PreferencesManager.getExtensionPrefs("brackets-paste-and-indent");
 
     // Define the `enabled` preference, default is `true`.
@@ -25,7 +25,7 @@ define(function (require, exports, module) {
 
     // When the Brackets document changes, attach an event listener for paste
     // events on its internal codeMirror object.
-    $(DocumentManger).on("currentDocumentChange", function () {
+    MainViewManager.on("currentFileChange", function () {
         var editor = EditorManager.getCurrentFullEditor();
 
         if (!editor) {
